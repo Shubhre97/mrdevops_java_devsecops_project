@@ -5,13 +5,16 @@ pipeline{
 
     stages{
         stage('Git Checkout'){
-            steps{
-                
-                    gitCheckout(
-                    branch: "main", 
-                    url: "https://github.com/Shubhre97/mrdevops_java_devsecops_project.git"
-                    )               
-
+            steps{          
+                gitCheckout(
+                branch: "main", 
+                url: "https://github.com/Shubhre97/mrdevops_java_devsecops_project.git"
+                )               
+            }
+        }
+        stage('Unit Tests Maven'){
+            script{
+                mvnTest()
             }
         }
     }
